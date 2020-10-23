@@ -9,50 +9,6 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
         
       end
-
-      it "nicknameが40文字以下で登録ができる" do
-        @user.nickname = "sample"
-        expect(@user).to be_valid
-      end
-
-      it "emailは、@を含んでいると登録ができる" do
-        @user.email = "sample@gmail.com"
-        expect(@user).to be_valid
-      end
-
-      it "passwordは、6文字以上,半角英数字混合で登録ができる" do
-        @user.password = "password1"
-        @user.password_confirmation = "password1"
-        expect(@user).to be_valid
-      end
-
-      it "password,password_confirmationの値が一致で登録ができる" do
-        @user.password = "password1"
-        @user.password_confirmation = "password1"
-        expect(@user).to be_valid
-      end
-      
-      it "first_nameは全角(漢字・ひらがな・カタカナ)であると登録ができる" do
-        @user.first_name = "佐藤"
-        expect(@user).to be_valid
-      
-      end
-
-      it "last_nameは全角(漢字・ひらがな・カタカナ)であると登録ができる" do
-        @user.last_name = "太郎"
-        expect(@user).to be_valid
-      end
-
-      it "first_name_kanaは全角(カタカナ)であると登録ができる" do
-        @user.first_name_kana = "サトウ"
-        expect(@user).to be_valid
-      end
-
-      it "last_name_kanaは全角(カタカナ)であると登録ができる" do
-        @user.last_name_kana = "タロウ"
-        expect(@user).to be_valid
-      end
-    
     end
     context '新規登録がうまく出来ない時' do
       it "nicknameが空だと登録ができない" do
