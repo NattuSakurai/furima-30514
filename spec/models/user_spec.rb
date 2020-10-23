@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
     context '新規登録がうまくいく時' do
       it "nickname,email,password,password_confirmation,first_name,last_name,first_name_kana,last_name_kana,birthdayが存在すれば登録ができる" do
         expect(@user).to be_valid
+        
       end
 
       it "nicknameが40文字以下で登録ができる" do
@@ -34,6 +35,7 @@ RSpec.describe User, type: :model do
       it "first_nameは全角(漢字・ひらがな・カタカナ)であると登録ができる" do
         @user.first_name = "佐藤"
         expect(@user).to be_valid
+      
       end
 
       it "last_nameは全角(漢字・ひらがな・カタカナ)であると登録ができる" do
@@ -80,7 +82,7 @@ RSpec.describe User, type: :model do
       end
 
       it "emailに@が含まれていなければ登録ができない" do
-        @user.email = 'sample.gmail.com'
+        @user.email = 'sample.com'
         @user.valid?
         expect(@user.errors.full_messages).to include("Email is invalid")
       end
@@ -92,7 +94,7 @@ RSpec.describe User, type: :model do
       end
 
       it "passwordが5文字以下だと登録ができない" do
-        @user.password = 'passw'
+        @user.password = 'pass'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
