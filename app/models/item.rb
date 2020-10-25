@@ -10,9 +10,11 @@ class Item < ApplicationRecord
 
   validates :name, :description, :category_id, :status_id, :postage_id, :regional_id, :shipping_date_id, :price, presence: true
 
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :status_id, numericality: { other_than: 1 } 
-  validates :postage_id, numericality: { other_than: 1 } 
-  validates :regional_id, numericality: { other_than: 1 } 
-  validates :shipping_date_id, numericality: { other_than: 1 } 
+  with_options  numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :postage_id
+    validates :regional_id
+    validates :shipping_date_id
+  end
 end
