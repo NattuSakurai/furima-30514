@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :regional
   belongs_to_active_hash :shipping_date
 
-  validates :name, :description, :category_id, :status_id, :postage_id, :regional_id, :shipping_date_id, :price, presence: true
+  validates :image,:name, :description, :category_id, :status_id, :postage_id, :regional_id, :shipping_date_id, :price, presence: true
 
   with_options  numericality: { other_than: 1 } do
     validates :category_id
