@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-    image               {"apple.png"}
     name                {"りんご"}
     description         {"青森産のりんごです"}
     category_id            {10}
@@ -9,5 +8,8 @@ FactoryBot.define do
     regional_id            {3}
     shipping_date_id       {3}
     price               {1980}
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/images/test.png'), filename: 'test.png')
+    end
   end
 end
