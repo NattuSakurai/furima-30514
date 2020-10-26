@@ -25,30 +25,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
-      it "category_idが空だと登録できない" do
-        @item.category_id = ''
+      it "category_idがid:1の場合登録できない" do
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
-      it "status_idが空だと登録できない" do
-        @item.status_id = ''
+
+      it "status_idがid:1だと登録できない" do
+        @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
-      it "postage_idが空だと登録できない" do
-        @item.postage_id = ''
+      it "postage_idがid:1だと登録できない" do
+        @item.postage_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage can't be blank")
+        expect(@item.errors.full_messages).to include("Postage must be other than 1")
       end
-      it "regional_idが空だと登録できない" do
-        @item.regional_id = ''
+      it "regional_idがid:1だと登録できない" do
+        @item.regional_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Regional can't be blank")
+        expect(@item.errors.full_messages).to include("Regional must be other than 1")
       end
-      it "shipping_date_idが空だと登録できない" do
-        @item.shipping_date_id = ''
+      it "shipping_date_idがid:1だと登録できない" do
+        @item.shipping_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping date must be other than 1")
       end
       it "priceが空だと登録できない" do
         @item.price = ''
