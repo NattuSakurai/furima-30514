@@ -17,4 +17,7 @@ class Item < ApplicationRecord
     validates :regional_id
     validates :shipping_date_id
   end
+
+  validates :price, numericality: { greater_than: 300}
+  validates :price, numericality: {less_than: 9999999}
 end
