@@ -1,9 +1,11 @@
 class RecordsController < ApplicationController
   def index
     @user_shopping = UserShopping.new
+    @item = Item.find(params[:item_id])
   end
   def create
     @user_shopping = UserShopping.new(shopping_params)
+    @item = Item.find(params[:item_id])
     if @user_shopping.valid?
       @user_shopping.save
       redirect_to root_path
