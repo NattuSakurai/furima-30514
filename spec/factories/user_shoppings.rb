@@ -8,5 +8,6 @@ FactoryBot.define do
       building_name {"ライオンズマンション102"}
       phone_number {"09000000000"}
       record_id {1}
+      token {"tok_abcdefghijk00000000000000000"}
   end
 end

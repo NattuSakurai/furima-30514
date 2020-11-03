@@ -42,5 +42,10 @@ RSpec.describe UserShopping, type: :model do
       @user_shopping.valid?
       expect(@user_shopping.errors.full_messages).to include("Phone number is invalid")
     end
+    it 'tokenがからだと購入できない' do
+      @user_shopping.token = ''
+      @user_shopping.valid?
+      expect(@user_shopping.errors.full_messages).to include("Token can't be blank")
+    end
   end
 end
