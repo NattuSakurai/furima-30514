@@ -8,7 +8,7 @@ class UserShopping
     validates :prefectures_id, numericality: { other_than: 1 }
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/}
     validates :address_number
-    validates :phone_number, format:{ with: /0\d{10}/}
+    validates :phone_number, format:{ with: /\A0[0-9]{9,10}\z/}
     validates :token
   end
 
